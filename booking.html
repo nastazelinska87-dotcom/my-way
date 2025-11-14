@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бронювання Столиків</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Головна</a> |
+    <a href="menu.html">Меню</a> |
+    <a href="booking.html">Бронювання</a>
+</nav>
+
+<h1>Бронювання столика</h1>
+
+<form id="bookingForm">
+    <label>Ваше ім'я:</label><br>
+    <input type="text" id="name" required><br><br>
+
+    <label>Кількість людей:</label><br>
+    <input type="number" id="people" min="1" required><br><br>
+
+    <label>Дата і час:</label><br>
+    <input type="datetime-local" id="datetime" required><br><br>
+
+    <button type="submit">Забронювати</button>
+</form>
+
+<p id="bookingMessage"></p>
+
+<script>
+    const form = document.getElementById('bookingForm');
+    const message = document.getElementById('bookingMessage');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const people = document.getElementById('people').value;
+        const datetime = document.getElementById('datetime').value;
+        message.textContent = `Дякуємо, ${name}! Ваш столик для ${people} людей заброньовано на ${datetime}.`;
+        form.reset();
+    });
+</script>
+
+</body>
+</html>
